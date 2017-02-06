@@ -54,14 +54,14 @@ In the standalone.xml file add the following SSL connector information, after th
 
 <pre>
 	<code>	
-		<connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
-			  <ssl name="ssl"
+		\<connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
+			  \<ssl name="ssl"
 			  protocol="TLSv1"
 			  password="SecretPwd"
 			  certificate-key-file="/usr/save/keystore/jbosskeys.jks"
 			  ca-certificate-file="/usr/save/keystore/cacerts.jks"
 			  verify-client="true" />
-		</connector>
+		\</connector>
 	</code>
 </pre> 
 
