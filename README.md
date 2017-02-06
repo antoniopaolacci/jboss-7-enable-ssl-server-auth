@@ -41,27 +41,28 @@ Certificate was added to keystore. Now modify standalone.conf
 
 Modify the <i>jboss-as-7.1.1.Final/bin/standalone.conf</i> file and add the following <i>JAVA_OPTS</i> parameters.
 
-<i>JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStorePassword=SecretPwd"</i>
-<i>JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStorePassword=SecretPwd"</i>
-<i>JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStoreType=JKS"</i>
-<i>JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStoreType=JKS"</i>
-<i>JAVA_OPTS="$JAVA_OPTS \-DCLIENT_KEY_ALIAS=jbosskeys"</i>
-<i>JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStore=/usr/save/keystore/jbosskeys.jks"</i>
-<i>JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStore=/usr/save/keystore/cacerts.jks"</i>
+```
+JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStorePassword=SecretPwd" 
+JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStorePassword=SecretPwd" 
+JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStoreType=JKS" 
+JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStoreType=JKS" 
+JAVA_OPTS="$JAVA_OPTS \-DCLIENT_KEY_ALIAS=jbosskeys" 
+JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStore=/usr/save/keystore/jbosskeys.jks" 
+JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStore=/usr/save/keystore/cacerts.jks" 
+```
 
 In the standalone.xml file add the following SSL connector information, after this line: <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
 
-
 <pre>
 	<code>	
-		\<connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
-			  \<ssl name="ssl"
+		<connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
+			  <ssl name="ssl"
 			  protocol="TLSv1"
 			  password="SecretPwd"
 			  certificate-key-file="/usr/save/keystore/jbosskeys.jks"
 			  ca-certificate-file="/usr/save/keystore/cacerts.jks"
 			  verify-client="true" />
-		\</connector>
+		</connector>
 	</code>
 </pre> 
 
