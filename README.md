@@ -3,11 +3,11 @@
 How to enable server authentication through SSL certificate in JBoss AS 7.1.1.Final. This configuration will make sure that web server 
 with certificate is trusted by the client who connects to the application.
 
-Let us create the keys required for JBoss under <i>/usr/save/keystore</i>
+Let us create the keys required for JBoss under /usr/save/keystore
 
 <pre>
 	<code>
-		#mkdir /usr/save/keystore#
+		mkdir /usr/save/keystore
 	</code>
 </pre> 
  
@@ -16,7 +16,7 @@ Use the java keytool, provided by java kit, and the genkey command to create the
 
 <pre>
 	<code>
-		#/usr/java/jdk1.6.0_31/bin/keytool -genkey -keyalg RSA -alias jbosskeys -keystore jbosskeys.jks -validity 365 -keysize 2048#
+		/usr/java/jdk1.6.0_31/bin/keytool -genkey -keyalg RSA -alias jbosskeys -keystore jbosskeys.jks -validity 365 -keysize 2048
 	</code>
 </pre> 
 
@@ -24,7 +24,7 @@ For self-signed certificate use:
 
 <pre>
 	<code>
-		#/usr/java/jdk1.6.0_31/bin/keytool -v -genkey -alias jbosskeys -keyalg RSA -keysize 1024 -keystore jbosskeys.jks -keypass SecretPwd -storepass SecretPwd -validity 365 -dname "CN=localhost"#
+		/usr/java/jdk1.6.0_31/bin/keytool -v -genkey -alias jbosskeys -keyalg RSA -keysize 1024 -keystore jbosskeys.jks -keypass SecretPwd -storepass SecretPwd -validity 365 -dname "CN=localhost"
 	</code>
 </pre> 
 
@@ -32,7 +32,7 @@ Found/Buy a valid certificate. Import the crt file to the keystore.
 
 <pre>
 	<code>
-		#/usr/java/jdk1.6.0_31/bin/keytool -v -import -keypass SecretPwd -noprompt -trustcacerts -alias domain -file localfile.crt -keystore cacerts.jks -storepass SecretPwd
+		/usr/java/jdk1.6.0_31/bin/keytool -v -import -keypass SecretPwd -noprompt -trustcacerts -alias domain -file localfile.crt -keystore cacerts.jks -storepass SecretPwd
 	</code>
 </pre> 
 
@@ -51,12 +51,18 @@ Modify the <i>jboss-as-7.1.1.Final/bin/standalone.conf</i> file and add the foll
 
 In the standalone.xml file add the following SSL connector information, after this line: <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
 
-<i> <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
- <ssl name="ssl"
-     protocol="TLSv1"
-     password="SecretPwd"
-     certificate-key-file="/usr/save/keystore/jbosskeys.jks"
-     ca-certificate-file="/usr/save/keystore/cacerts.jks"
-     verify-client="true" />
-</connector> </i>
+
+<pre>
+	<code>	
+		<connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
+			  <ssl name="ssl"
+			  protocol="TLSv1"
+			  password="SecretPwd"
+			  certificate-key-file="/usr/save/keystore/jbosskeys.jks"
+			  ca-certificate-file="/usr/save/keystore/cacerts.jks"
+			  verify-client="true" />
+		</connector>
+	</code>
+</pre> 
+
 
