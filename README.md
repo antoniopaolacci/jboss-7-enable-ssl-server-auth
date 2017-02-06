@@ -39,7 +39,7 @@ Found/Buy a valid certificate. Import the crt file to the keystore.
 
 Certificate was added to keystore. Now modify standalone.conf
 
-Modify the <i>jboss-as-7.1.1.Final/bin/standalone.conf</i> file and add the following <i>JAVA_OPTS</i> parameters.
+Modify the jboss-as-7.1.1.Final/bin/standalone.conf file and add the following JAVA_OPTS parameters.
 
 ```
 JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStorePassword=SecretPwd" 
