@@ -11,7 +11,7 @@ mkdir /usr/save/keystore
 	</code>
 </pre> 
  
-Server keystore is used by the server to establish a secure connection (through HTTPS protocol)
+Server keystore is used by the server to establish a secure connection (through HTTPS protocol).
 Use the java keytool, provided by java kit, and the genkey command to create the RSA keypair and/or a self-signed certificate as shown below.
 
 <pre>
@@ -28,7 +28,7 @@ For self-signed certificate use:
 	</code>
 </pre> 
 
-Found/Buy a valid certificate. Import the crt file to the keystore.
+Obtain a valid certificate. Import the .crt file to the keystore.
 
 <pre>
 	<code>
@@ -50,8 +50,10 @@ JAVA_OPTS="$JAVA_OPTS \-DCLIENT_KEY_ALIAS=jbosskeys"
 JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStore=/usr/save/keystore/jbosskeys.jks" 
 JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStore=/usr/save/keystore/cacerts.jks" 
 ```
-
-In the standalone.xml file add the following SSL connector information, after this line: <i><connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/></i>
+In the standalone.xml file add the following SSL connector information, after this line: 
+<i>
+ <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
+</i>
 
 ```
 <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
