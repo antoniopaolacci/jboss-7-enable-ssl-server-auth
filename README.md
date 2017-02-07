@@ -51,9 +51,7 @@ JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.keyStore=/usr/save/keystore/jbosskeys.jks
 JAVA_OPTS="$JAVA_OPTS \-Djavax.net.ssl.trustStore=/usr/save/keystore/cacerts.jks" 
 ```
 In the standalone.xml file add the following SSL connector information, after this line: 
-<i>
- <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
-</i>
+__<connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>__
 
 ```
 <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="connect" secure="true">
