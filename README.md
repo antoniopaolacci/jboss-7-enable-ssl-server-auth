@@ -7,8 +7,11 @@
 - domain.p12
 - domain.jks
 
+NOTE:
+<i>The password of the P12-Certifcate and the password of the Keystore has to be the same.</i>
+
 # Create PKCS12 keystore from private key and public certificate.
-```openssl pkcs12 -export -name myservercert -in domain.crt -inkey domain.key -out domain.p12```
+```openssl pkcs12 -export -name domain -in domain.crt -inkey domain.key -out domain.p12```
 
 Enter Export Password: ...
 Verifying - Enter Export Password: ...
@@ -19,7 +22,7 @@ Verifying - Enter Export Password: ...
 Immettere la password del keystore di destinazione: ...
 Immettere nuovamente la nuova password: ...
 Immettere la password del keystore di origine: ...
-La voce dell'alias myservercert è stata importata.
+La voce dell' alias domain è stata importata.
 Importazione completata:  1 voci importate, 0 voci non importate o annullate
 
 # Import intermediate certificate
@@ -27,12 +30,14 @@ Importazione completata:  1 voci importate, 0 voci non importate o annullate
 
 Immettere la password del keystore: ...
 Considerare attendibile questo certificato? [no]:  si
+Il certificato è stato aggiunto al keystore
 
 # Import domain certificate
 ```keytool -import -trustcacerts -alias domain -file domain.crt -keystore domain.jks```
 
 Immettere la password del keystore: ...
 Considerare attendibile questo certificato? [no]:  si
+Il certificato è stato aggiunto al keystore
 
 #Verify the contents of the JKS:
 ```keytool -list -v -keystore domain.jks```
