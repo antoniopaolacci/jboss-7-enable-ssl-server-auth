@@ -7,7 +7,7 @@
 - domain.p12
 - domain.jks
 
-NOTE:
+NOTE: <br>
 <i>The password of the P12-Certifcate and the password of the Keystore has to be the same.  <br>
 To avoid: Unable to start service Caused by: java.security.UnrecoverableKeyException: Cannot recover key </i>
 
