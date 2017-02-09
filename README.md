@@ -8,7 +8,8 @@
 - domain.jks
 
 NOTE:
-<i>The password of the P12-Certifcate and the password of the Keystore has to be the same.</i>
+<i>The password of the P12-Certifcate and the password of the Keystore has to be the same.  <br>
+To avoid: Unable to start service Caused by: java.security.UnrecoverableKeyException: Cannot recover key </i>
 
 # Create PKCS12 keystore from private key and public certificate.
 ```openssl pkcs12 -export -name domain -in domain.crt -inkey domain.key -out domain.p12```
