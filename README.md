@@ -45,6 +45,11 @@ Il certificato è stato aggiunto al keystore  <br>
 
 Immettere la password del keystore:  <br>
 
+Tipo keystore: JKS <br>
+Provider keystore: SUN <br>
+
+Il keystore contiene 2 entry <br>
+
 #Editing configuration/standalone.xml
 
 ```
