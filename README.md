@@ -74,3 +74,9 @@ Il keystore contiene 2 entry <br>
 		<https-listener name="default-ssl" socket-binding="https" security-realm="SslRealm"/>
 ```
 
+#Verify https port binding
+
+```
+<socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
+    <socket-binding name="https" port="${jboss.https.port:8443}"/>
+```
