@@ -1,3 +1,7 @@
+# Obtain ssl certificate
+
+[https://gethttpsforfree.com/](https://gethttpsforfree.com/)
+
 #Common file related to jboss and ssl certificate
 
 - account.key 
