@@ -80,3 +80,8 @@ Il keystore contiene 2 entry <br>
 <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
     <socket-binding name="https" port="${jboss.https.port:8443}"/>
 ```
+
+NOTE:<br>
+<i>Add a unix redirect, because port 80 is open only by root user: <br>
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080 <br>
+sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8443</i>
