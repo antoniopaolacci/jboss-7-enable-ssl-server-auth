@@ -87,6 +87,6 @@ Il keystore contiene 2 entry 	<br></i>
 ```
 
 NOTE:																			<br>
-<i>Add a unix redirect, because port 80 is open only by root user: 				<br>
-sudo iptables -t nat -A PREROUTING -p tcp --dport <b>80</b> -j REDIRECT --to-port <b>8080</b> <br>
-sudo iptables -t nat -A PREROUTING -p tcp --dport <b>443</b> -j REDIRECT --to-port <b>8443</b> </i>
+<i><b>Add a unix redirect, because port 80 is open only by root user</b> 		<br>
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080 <br>
+sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8443</i>
