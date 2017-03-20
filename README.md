@@ -2,7 +2,7 @@
 
 [https://gethttpsforfree.com/](https://gethttpsforfree.com/)
 
-#Common file related to jboss and ssl certificate
+# Common file related to jboss and ssl certificate
 
 - account.key 
 - domain.key
@@ -11,8 +11,8 @@
 - domain.p12
 - domain.jks
 
-NOTE: 																						<br>
-<i>The password of the P12-Certifcate and the password of the Keystore has to be the same.  <br>
+NOTE: 																							   <br>
+<i><b>The password of the P12-Certifcate and the password of the Keystore has to be the same.</b>  <br>
 To avoid: Unable to start service Caused by: java.security.UnrecoverableKeyException: Cannot recover key </i>
 
 # Create PKCS12 keystore from private key and public certificate.
@@ -24,37 +24,36 @@ Verifying - Enter Export Password: ...  <br>
 # Convert PKCS12 keystore into a JKS keystore
 ```keytool -importkeystore -srckeystore domain.p12 -srcstoretype pkcs12 -destkeystore domain.jks -deststoretype JKS```
 
-Immettere la password del keystore di destinazione: ...  					  <br>
+<i>Immettere la password del keystore di destinazione: ...  				  <br>
 Immettere nuovamente la nuova password: ...  								  <br>
 Immettere la password del keystore di origine: ...  						  <br>
 La voce dell' alias domain è stata importata.  								  <br>
-Importazione completata:  1 voci importate, 0 voci non importate o annullate  <br>
+Importazione completata:  1 voci importate, 0 voci non importate o annullate  <br></i>
 
 # Import intermediate certificate
 ```keytool -import -trustcacerts -alias intermediate -file intermediate.crt -keystore domain.jks```
 
-Immettere la password del keystore:  				   <br>
+<i>Immettere la password del keystore:  			   <br>
 Considerare attendibile questo certificato? [no]:  si  <br>
-Il certificato è stato aggiunto al keystore  		   <br>
+Il certificato è stato aggiunto al keystore  		   <br></i>
 
 # Import domain certificate
 ```keytool -import -trustcacerts -alias domain -file domain.crt -keystore domain.jks```
 
-Immettere la password del keystore:  					<br>
+<i>Immettere la password del keystore:  				<br>
 Considerare attendibile questo certificato? [no]:  si   <br>
-Il certificato è stato aggiunto al keystore  			<br>
+Il certificato è stato aggiunto al keystore  			<br></i>
 
-#Verify the contents of the JKS
+# Verify the contents of the JKS
 ```keytool -list -v -keystore domain.jks```
 
-Immettere la password del keystore:  <br>
+<i>Immettere la password del keystore:  <br>
 
 Tipo keystore: JKS 				<br>
 Provider keystore: SUN 			<br>
+Il keystore contiene 2 entry 	<br></i>
 
-Il keystore contiene 2 entry 	<br>
-
-#Editing configuration/standalone.xml
+# Editing configuration/standalone.xml
 
 ```
  <security-realms>
@@ -68,7 +67,7 @@ Il keystore contiene 2 entry 	<br>
 </security-realms>
 ```
 
-#Adding listener for https by editing standalone.xml
+# Adding listener for https by editing standalone.xml
 
 ```
 <subsystem xmlns="urn:jboss:domain:undertow:1.2">
@@ -79,7 +78,7 @@ Il keystore contiene 2 entry 	<br>
 		...
 ```
 
-#Verify https port binding
+# Verify https port binding
 
 ```
 <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
