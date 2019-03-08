@@ -113,25 +113,26 @@ Generate self-signed ssl cert with keytool:
 ```
 keytool -keystore ssl-server.jks -genkey -alias testssl -keyalg RSA
 ```
+<br>
+Enter keystore password:  --the keystore password-- <br>
+Re-enter new password: <br>
+What is your first and last name? <br>
+  [Unknown]:  Marco Rossi <br>
+What is the name of your organizational unit? <br>
+  [Unknown]:  Net    <br>
+What is the name of your organization?  <br>
+  [Unknown]:  ACN    <br>
+What is the name of your City or Locality?  <br>
+  [Unknown]:  Rome  <br>
+What is the name of your State or Province?  <br>
+  [Unknown]:  RM  <br>
+What is the two-letter country code for this unit?  <br>
+  [Unknown]:  IT  <br>
+Is CN=Marco Rossi, OU=Net, O=ACN, L=Rome, ST=RM, C=IT correct?  <br>
+  [no]:  y <br>
 
-Enter keystore password:  --the keystore password--
-Re-enter new password:
-What is your first and last name?
-  [Unknown]:  Marco Rossi
-What is the name of your organizational unit?
-  [Unknown]:  Net    
-What is the name of your organization?
-  [Unknown]:  ACN
-What is the name of your City or Locality?
-  [Unknown]:  Rome
-What is the name of your State or Province?
-  [Unknown]:  RM
-What is the two-letter country code for this unit?
-  [Unknown]:  IT
-Is CN=Marco Rossi, OU=Net, O=ACN, L=Rome, ST=RM, C=IT correct?
-  [no]:  y
-
-For example, use it on spring-boot project: 
+<br>
+Use it, for example, on spring-boot project: 
 
  - copy the file on <i>/src/main/resources</i> classpath directory of a java project
  - write on <i>application.properties</i> file the following configuration parameters
