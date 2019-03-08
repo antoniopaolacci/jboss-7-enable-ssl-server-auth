@@ -114,7 +114,7 @@ Generate self-signed ssl cert with keytool:
 keytool -keystore ssl-server.jks -genkey -alias testssl -keyalg RSA
 ```
 
-Enter keystore password: <b>--the keystore password--</b>  
+Enter keystore password:  --the keystore password--
 Re-enter new password:
 What is your first and last name?
   [Unknown]:  Marco Rossi
@@ -137,10 +137,9 @@ For example, use it on spring-boot project:
  - write on <i>application.properties</i> file the following configuration parameters
  
 ```
-
 server.ssl.enabled=false
 server.ssl.key-store=classpath:ssl-server.jks
-server.ssl.key-store-password=\<b>--the keystore password--\</b>
+server.ssl.key-store-password= --the keystore password--
 server.ssl.key-store-provider=SUN
 server.ssl.key-store-type=JKS
 ```
