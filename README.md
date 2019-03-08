@@ -113,7 +113,7 @@ Generate self-signed ssl cert with keytool:
 ```
 keytool -keystore ssl-server.jks -genkey -alias testssl -keyalg RSA
 ```
-<br>
+<i><br>
 Enter keystore password:  --the keystore password-- <br>
 Re-enter new password: <br>
 What is your first and last name? <br>
@@ -129,7 +129,7 @@ What is the name of your State or Province?  <br>
 What is the two-letter country code for this unit?  <br>
   [Unknown]:  IT  <br>
 Is CN=Marco Rossi, OU=Net, O=ACN, L=Rome, ST=RM, C=IT correct?  <br>
-  [no]:  y <br>
+  [no]:  y </i> <br>
 
 <br>
 Use it, for example, on spring-boot project: 
