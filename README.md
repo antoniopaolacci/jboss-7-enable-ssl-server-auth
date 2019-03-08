@@ -139,7 +139,7 @@ For example, use it on spring-boot project:
 
 server.ssl.enabled=false
 server.ssl.key-store=classpath:ssl-server.jks
-server.ssl.key-store-password=<b>--the keystore password--</b>
+server.ssl.key-store-password=\<b>--the keystore password--\</b>
 server.ssl.key-store-provider=SUN
 server.ssl.key-store-type=JKS
 ```
