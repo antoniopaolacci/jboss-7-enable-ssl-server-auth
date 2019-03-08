@@ -2,6 +2,9 @@
 
 [https://gethttpsforfree.com/](https://gethttpsforfree.com/)
 
+# Or self signed SSL certificate
+
+
 # Common file related certificate gethttpsforfree.com
 
 <i>If you will have the following <b>PEM</b>-encoded files:</i>
@@ -100,3 +103,45 @@ NOTE:																			<br>
 <i><b>Add a unix redirect, because port 80 is open only by root user</b> 		<br>
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080 <br>
 sudo iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-port 8443</i>
+
+
+# Self signed certificate
+
+Generate self-signed ssl cert with keytool:
+
+```
+keytool -keystore ssl-server.jks -genkey -alias testssl -keyalg RSA
+```
+
+Enter keystore password: <b>--the keystore password--</b>  
+Re-enter new password:
+What is your first and last name?
+  [Unknown]:  Marco Rossi
+What is the name of your organizational unit?
+  [Unknown]:  Net    
+What is the name of your organization?
+  [Unknown]:  ACN
+What is the name of your City or Locality?
+  [Unknown]:  Rome
+What is the name of your State or Province?
+  [Unknown]:  RM
+What is the two-letter country code for this unit?
+  [Unknown]:  IT
+Is CN=Marco Rossi, OU=Net, O=ACN, L=Rome, ST=RM, C=IT correct?
+  [no]:  y
+
+For example, use it on spring-boot project: 
+
+ - copy the file on <i>/src/main/resources</i> classpath directory of a java project
+ - write on <i>application.properties</i> file the following configuration parameters
+ 
+```
+
+server.ssl.enabled=false
+server.ssl.key-store=classpath:ssl-server.jks
+server.ssl.key-store-password=<b>--the keystore password--</b>
+server.ssl.key-store-provider=SUN
+server.ssl.key-store-type=JKS
+```
+
+
