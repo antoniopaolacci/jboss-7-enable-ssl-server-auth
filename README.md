@@ -1,3 +1,17 @@
+# Glossary
+The digitally signed certificate(s) returned by the CA can be in any accepted format but the <b>PEM</b> format (usually have extensions such as <b>.pem, .crt, .cer, .key </b>) is the most common format that CA issue certificates in. <br> 
+They PEM are <b>Base64 encoded ASCII files</b> and contain “ -----<b>BEGIN CERTIFICATE</b> -----” and “-----<b>END CERTIFICATE</b> -----” statements. <br>
+SSL certificates, root anf intermediate CA certificates, and private keys can all be put into the PEM format.
+
+A <b>Keystore</b> file is used to store cryptographic keys and certificates. 
+There are three kinds of entries that can be stored in a Keystore file depending upon the type of Keystore file it is: <br>
+
+<b>Private Key</b>: This is a type of key that is used in asymmetric cryptography. It is usually protected with a password because of its sensitivity. It can also be used to sign a digital signature. <br>
+
+<b>Certificate</b>: A certificate contains a public key that can identify the subject claimed in the certificate. It is usually used to verify the identity of a server. <br>
+
+<b>Secret Key</b>: A key entry that is used in symmetric cryptography. <br>
+
 # Obtain SSL certificate
 
 [https://gethttpsforfree.com/](https://gethttpsforfree.com/)
